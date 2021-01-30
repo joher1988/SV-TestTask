@@ -2,7 +2,7 @@
 
 namespace SV_TestTask.Common.Models
 {
-    public class Medium
+    public class Medium:EntityBase
     {
         public Guid Id { get; set; }
         [SearchEngineRelevanceScore(8, nameof(Group.Name))]

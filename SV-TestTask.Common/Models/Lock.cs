@@ -2,7 +2,7 @@
 
 namespace SV_TestTask.Common.Models
 {
-    public class Lock
+    public class Lock: EntityBase
     {
         public Guid Id { get; set; }
         [SearchEngineRelevanceScore(8, nameof(Building.Name))]

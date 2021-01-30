@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace SV_TestTask.Common.Models
 {
 
-    public class Building
+    public class Building:EntityBase
     {
         public Guid Id { get; set; }
         [SearchEngineRelevanceScore(7)]
