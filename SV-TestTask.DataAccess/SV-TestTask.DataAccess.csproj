@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>SV_TestTask.DataAccess</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="DataSource\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DataSource\sv_lsm_data.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
