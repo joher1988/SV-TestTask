@@ -6,11 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DataSource\" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="DataSource\sv_lsm_data.json">
+    <ProjectReference Include="..\SV-TestTask.Common\SV-TestTask.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="sv_lsm_data.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

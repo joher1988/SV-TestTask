@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SV_TestTask.DataAccess;
 
 namespace SV_TestTask
 {
@@ -26,6 +27,7 @@ namespace SV_TestTask
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            services.AddDataAccessDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
