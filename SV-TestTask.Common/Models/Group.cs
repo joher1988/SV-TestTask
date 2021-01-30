@@ -11,6 +11,6 @@ namespace SV_TestTask.Common.Models
         public string Name { get; set; }
         [SearchEngineRelevanceScore(5)]
         public string Description { get; set; }
-        public IEnumerable<Medium> Mediums { get; set; }
+        public IEnumerable<Medium> Media { get; set; }
     }
 }

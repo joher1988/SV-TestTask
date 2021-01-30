@@ -29,23 +29,25 @@ namespace SV_TestTask.DataAccess.DataSource
                 buildings = new Building[] { },
                 locks = new Lock[] { },
                 groups = new Group[] { },
-                mediums = new Medium[] { }
+                media = new Medium[] { }
             };
             var fileContent = JsonConvert.DeserializeAnonymousType(await File.ReadAllTextAsync(DataSourceFilepath), fileSchema);
 
             var lockGroups = fileContent.locks.GroupBy(lockEntry => lockEntry.BuildingId);
-            foreach (var building in _buildings)
+            _buildings = fileContent.buildings.Select(building =>
             {
                 building.Locks = lockGroups.FirstOrDefault(locks => locks.Key == building.Id)?.ToList() ??
                                  new List<Lock>();
-            }
+                return building;
+            }).ToList();
 
-            var mediumGroups = fileContent.mediums.GroupBy(medium => medium.GroupId);
-            foreach (var group in _groups)
+            var mediumGroups = fileContent.media.GroupBy(medium => medium.GroupId);
+            _groups = fileContent.groups.Select(group =>
             {
-                group.Mediums = mediumGroups.FirstOrDefault(medium => medium.Key == group.Id)?.ToList() ??
+                group.Media = mediumGroups.FirstOrDefault(medium => medium.Key == group.Id)?.ToList() ??
                                 new List<Medium>();
-            }
+                return group;
+            }).ToList();
         }
 
         public async Task<IReadOnlyCollection<Group>> GetGroupsAsync()
