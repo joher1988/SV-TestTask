@@ -8,16 +8,9 @@ namespace SV_TestTask.Tests
     public class DataSourceTests
     {
         [Fact]
-        public async Task ShouldReturnsBuildings()
+        public async Task ShouldReturnsEntities()
         {
-            var result = await new DataSource().GetBuildingsAsync();
-
-            Assert.NotEmpty(result);
-        }
-        [Fact]
-        public async Task ShouldReturnsGroups()
-        {
-            var result = await new DataSource().GetGroupsAsync();
+            var result = await new DataSource().GetAllEntitiesAsync();
 
             Assert.NotEmpty(result);
         }

@@ -28,8 +28,10 @@ namespace SV_TestTask
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+
             services.AddDataAccessDependencies()
-                .AddApplicationServices();
+                .AddApplicationServicesDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

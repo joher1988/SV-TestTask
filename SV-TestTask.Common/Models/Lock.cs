@@ -5,21 +5,21 @@ namespace SV_TestTask.Common.Models
     public class Lock: EntityBase
     {
         public Guid Id { get; set; }
-        [SearchEngineRelevanceScore(8, nameof(Building.Name))]
-        [SearchEngineRelevanceScore(5,nameof(Building.ShortCut))]
-        [SearchEngineRelevanceScore(0, nameof(Building.Description))]
+        [SearchEngineTransitiveRelevanceScore(8, nameof(Building.Name))]
+        [SearchEngineTransitiveRelevanceScore(5,nameof(Building.ShortCut))]
+        [SearchEngineTransitiveRelevanceScore(0, nameof(Building.Description))]
         public Guid BuildingId { get; set; }
-        [SearchEngineRelevanceScore(10)]
+        [SearchEngineOwnRelevanceScore(10)]
         public string Name { get; set; }
-        [SearchEngineRelevanceScore(3)]
+        [SearchEngineOwnRelevanceScore(3)]
         public LockType Type { get; set; }
-        [SearchEngineRelevanceScore(8)]
+        [SearchEngineOwnRelevanceScore(8)]
         public string SerialNumber { get; set; }
-        [SearchEngineRelevanceScore(6)]
+        [SearchEngineOwnRelevanceScore(6)]
         public string Floor { get; set; }
-        [SearchEngineRelevanceScore(6)]
+        [SearchEngineOwnRelevanceScore(6)]
         public string RoomNumber { get; set; }
-        [SearchEngineRelevanceScore(6)]
+        [SearchEngineOwnRelevanceScore(6)]
         public string Description { get; set; }
     }
 }

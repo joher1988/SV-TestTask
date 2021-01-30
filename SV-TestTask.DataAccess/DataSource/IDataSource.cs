@@ -4,9 +4,8 @@ using SV_TestTask.Common.Models;
 
 namespace SV_TestTask.DataAccess.DataSource
 {
-    internal interface IDataSource
+    public interface IDataSource
     {
-        Task<IReadOnlyCollection<Building>> GetBuildingsAsync();
-        Task<IReadOnlyCollection<Group>> GetGroupsAsync();
+        Task<IReadOnlyCollection<EntityBase>> GetAllEntitiesAsync();
     }
 }

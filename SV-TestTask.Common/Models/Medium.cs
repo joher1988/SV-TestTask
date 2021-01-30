@@ -5,16 +5,16 @@ namespace SV_TestTask.Common.Models
     public class Medium:EntityBase
     {
         public Guid Id { get; set; }
-        [SearchEngineRelevanceScore(8, nameof(Group.Name))]
-        [SearchEngineRelevanceScore(6,nameof(Group.Description))]
+        [SearchEngineTransitiveRelevanceScore(8, nameof(Group.Name))]
+        [SearchEngineTransitiveRelevanceScore(6,nameof(Group.Description))]
         public Guid GroupId { get; set; }
-        [SearchEngineRelevanceScore(3)]
+        [SearchEngineOwnRelevanceScore(3)]
         public MediumType Type { get; set; }
-        [SearchEngineRelevanceScore(10)]
+        [SearchEngineOwnRelevanceScore(10)]
         public string Owner { get; set; }
-        [SearchEngineRelevanceScore(8)]
+        [SearchEngineOwnRelevanceScore(8)]
         public string SerialNumber { get; set; }
-        [SearchEngineRelevanceScore(6)]
+        [SearchEngineOwnRelevanceScore(6)]
         public string Description { get; set; }
     }
 }

@@ -9,19 +9,9 @@ namespace SV_TestTask.DataAccess.DataSource
 {
     internal class DataSource : IDataSource
     {
-        private List<Building> _buildings;
-        private List<Group> _groups;
+        private List<EntityBase> _entities;
         public const string DataSourceFilepath = "sv_lsm_data.json";
-        public async Task<IReadOnlyCollection<Building>> GetBuildingsAsync()
-        {
-            if (_buildings == null)
-            {
-                await LoadContent();
-            }
-
-            return _buildings.AsReadOnly();
-        }
-
+        
         private async Task LoadContent()
         {
             var fileSchema = new
@@ -33,31 +23,22 @@ namespace SV_TestTask.DataAccess.DataSource
             };
             var fileContent = JsonConvert.DeserializeAnonymousType(await File.ReadAllTextAsync(DataSourceFilepath), fileSchema);
 
-            var lockGroups = fileContent.locks.GroupBy(lockEntry => lockEntry.BuildingId);
-            _buildings = fileContent.buildings.Select(building =>
-            {
-                building.Locks = lockGroups.FirstOrDefault(locks => locks.Key == building.Id)?.ToList() ??
-                                 new List<Lock>();
-                return building;
-            }).ToList();
+            _entities = new List<EntityBase>();
+            _entities.AddRange(fileContent.buildings);
+            _entities.AddRange(fileContent.groups);
+            _entities.AddRange(fileContent.media);
+            _entities.AddRange(fileContent.locks);
 
-            var mediumGroups = fileContent.media.GroupBy(medium => medium.GroupId);
-            _groups = fileContent.groups.Select(group =>
-            {
-                group.Media = mediumGroups.FirstOrDefault(medium => medium.Key == group.Id)?.ToList() ??
-                                new List<Medium>();
-                return group;
-            }).ToList();
         }
 
-        public async Task<IReadOnlyCollection<Group>> GetGroupsAsync()
+        public async Task<IReadOnlyCollection<EntityBase>> GetAllEntitiesAsync()
         {
-            if (_groups == null)
+            if (_entities == null)
             {
                 await LoadContent();
             }
 
-            return _groups.ToList().AsReadOnly();
+            return _entities.ToList().AsReadOnly();
         }
     }
 }
