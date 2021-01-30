@@ -3,15 +3,15 @@
 namespace SV_TestTask.Common
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
-    public class SearchEngineTransitiveRelevanceScoreAttribute : Attribute
+    public class SearchEngineTransitiveRelevanceScoreAttribute : SearchEngineOwnRelevanceScoreAttribute
     {
-        private readonly int _relevanceScore;
-        private readonly string _transitivePropertyName;
+        public string TransitivePropertyName { get; }
+        public Type TransitivePropertyType { get; }
 
-        public SearchEngineTransitiveRelevanceScoreAttribute(int relevanceScore, string transitivePropertyName)
+        public SearchEngineTransitiveRelevanceScoreAttribute(int relevanceScore, string transitivePropertyName, Type transitivePropertyType):base(relevanceScore)
         {
-            _relevanceScore = relevanceScore;
-            _transitivePropertyName = transitivePropertyName;
+            TransitivePropertyName = transitivePropertyName;
+            TransitivePropertyType = transitivePropertyType;
         }
     }
 }

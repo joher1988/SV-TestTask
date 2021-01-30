@@ -4,10 +4,9 @@ namespace SV_TestTask.Common.Models
 {
     public class Lock: EntityBase
     {
-        public Guid Id { get; set; }
-        [SearchEngineTransitiveRelevanceScore(8, nameof(Building.Name))]
-        [SearchEngineTransitiveRelevanceScore(5,nameof(Building.ShortCut))]
-        [SearchEngineTransitiveRelevanceScore(0, nameof(Building.Description))]
+        [SearchEngineTransitiveRelevanceScore(8, nameof(Building.Name), typeof(Building))]
+        [SearchEngineTransitiveRelevanceScore(5,nameof(Building.ShortCut), typeof(Building))]
+        [SearchEngineTransitiveRelevanceScore(0, nameof(Building.Description), typeof(Building))]
         public Guid BuildingId { get; set; }
         [SearchEngineOwnRelevanceScore(10)]
         public string Name { get; set; }

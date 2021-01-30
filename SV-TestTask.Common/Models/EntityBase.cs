@@ -1,7 +1,9 @@
-﻿namespace SV_TestTask.Common.Models
+﻿using System;
+
+namespace SV_TestTask.Common.Models
 {
     public class EntityBase
     {
-        
+        public Guid Id { get; set; }
     }
 }

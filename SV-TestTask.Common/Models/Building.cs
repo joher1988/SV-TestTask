@@ -8,7 +8,6 @@ namespace SV_TestTask.Common.Models
 
     public class Building:EntityBase
     {
-        public Guid Id { get; set; }
         [SearchEngineOwnRelevanceScore(7)]
         public string ShortCut { get; set; }
         [SearchEngineOwnRelevanceScore(9)]

@@ -13,9 +13,9 @@
     <ProjectReference Include="..\SV-TestTask.Common\SV-TestTask.Common.csproj" />
     <ProjectReference Include="..\SV-TestTask.DataAccess\SV-TestTask.DataAccess.csproj" />
   </ItemGroup>
-
   <ItemGroup>
-    <Folder Include="Repositories\" />
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>SV-TestTask.Tests</_Parameter1>
+    </AssemblyAttribute>
   </ItemGroup>
-
 </Project>

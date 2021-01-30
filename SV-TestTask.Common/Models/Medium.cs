@@ -4,9 +4,8 @@ namespace SV_TestTask.Common.Models
 {
     public class Medium:EntityBase
     {
-        public Guid Id { get; set; }
-        [SearchEngineTransitiveRelevanceScore(8, nameof(Group.Name))]
-        [SearchEngineTransitiveRelevanceScore(6,nameof(Group.Description))]
+        [SearchEngineTransitiveRelevanceScore(8, nameof(Group.Name), typeof(Group))]
+        [SearchEngineTransitiveRelevanceScore(6,nameof(Group.Description), typeof(Group))]
         public Guid GroupId { get; set; }
         [SearchEngineOwnRelevanceScore(3)]
         public MediumType Type { get; set; }
