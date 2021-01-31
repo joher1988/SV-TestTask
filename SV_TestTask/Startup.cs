@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Converters;
 using SV_TestTask.ApplicationServices;
 using SV_TestTask.DataAccess;
 
@@ -24,7 +25,7 @@ namespace SV_TestTask
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews()
-                .AddNewtonsoftJson();
+                .AddNewtonsoftJson(options => options.SerializerSettings.Converters.Add(new StringEnumConverter()));
             services.AddAutoMapper(typeof(Startup).Assembly);
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

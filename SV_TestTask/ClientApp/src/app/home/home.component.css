@@ -1,0 +1,43 @@
+.spinner-container {
+  height: 360px;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  position: absolute;
+  top: 50%;
+  width: 390px;
+}
+
+table { width: 100%; }
+
+tr.example-detail-row { height: 0; }
+
+.example-element-row:not(.example-expanded-row):hover { background: #f5f5f5; }
+
+.example-element-row:not(.example-expanded-row):active { background: #efefef; }
+
+.example-element-row { border-bottom-width: 0; }
+
+.example-element-detail {
+  display: flex;
+  overflow: hidden;
+}
+
+.example-element-diagram {
+  border: 2px solid black;
+  font-weight: lighter;
+  height: 104px;
+  margin: 8px 0;
+  min-width: 80px;
+  padding: 8px;
+}
+
+.example-element-symbol {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: normal;
+}
+
+.example-element-description { padding: 16px; }
+
+.example-element-description-attribution { opacity: 0.5; }
