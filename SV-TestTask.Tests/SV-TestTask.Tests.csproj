@@ -23,7 +23,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SV-TestTask.ApplicationServices\SV-TestTask.ApplicationServices.csproj" />
+    <ProjectReference Include="..\SV-TestTask.Common\SV-TestTask.Common.csproj" />
     <ProjectReference Include="..\SV-TestTask.DataAccess\SV-TestTask.DataAccess.csproj" />
+    <ProjectReference Include="..\SV_TestTask\SV_TestTask.csproj" />
   </ItemGroup>
-
+  <Target Name="AfterBuild">
+    <Copy SourceFiles="sv_lsm_data.json" DestinationFolder="$(OutputPath)\SV-TestTask.DataAccess\sv_lsm_data.json" ContinueOnError="true" />
+  </Target>
 </Project>

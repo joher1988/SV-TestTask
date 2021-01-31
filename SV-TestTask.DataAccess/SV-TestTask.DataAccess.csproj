@@ -13,12 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\SV-TestTask.Common\SV-TestTask.Common.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Update="sv_lsm_data.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
   <ItemGroup>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
       <_Parameter1>SV-TestTask.Tests</_Parameter1>

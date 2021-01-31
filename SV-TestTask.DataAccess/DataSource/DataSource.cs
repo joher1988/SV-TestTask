@@ -10,7 +10,7 @@ namespace SV_TestTask.DataAccess.DataSource
     internal class DataSource : IDataSource
     {
         private List<EntityBase> _entities;
-        public const string DataSourceFilepath = "sv_lsm_data.json";
+        public const string DataSourceFilepath = "Resources\\sv_lsm_data.json";
         
         private async Task LoadContent()
         {

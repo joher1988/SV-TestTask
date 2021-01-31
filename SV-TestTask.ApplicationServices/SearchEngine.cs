@@ -27,6 +27,8 @@ namespace SV_TestTask.ApplicationServices
         public async Task<IEnumerable<EntityBase>> SearchByString(string searchString)
         {
             var entities = await _dataSource.GetAllEntitiesAsync();
+            if (string.IsNullOrEmpty(searchString))
+                return entities;
             var entityWrapperWithRelevanceScores = CalculateScore(entities,searchString).Where(entity => entity.Score > 0)
                 .OrderByDescending(entity=>entity.Score);
             return entityWrapperWithRelevanceScores
